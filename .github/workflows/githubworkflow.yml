@@ -11,10 +11,10 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Docker Login
-        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+        run: docker login -u r0819654 -p Genz2001
 
       - name: Docker Build
-        run: docker build -t ${{ secrets.DOCKER_USER }}/herexamen-project-api-development:latest .
+        run: docker build -t r0819654/herexamen-project-api-development:latest .
 
       - name: Upload container to Docker Hub with Push
-        run: docker push ${{ secrets.DOCKER_USER }}/herexamen-project-api-development:latest
+        run: docker push r0819654/herexamen-project-api-development:latest
