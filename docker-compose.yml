@@ -1,7 +1,7 @@
 version: "3.9"
 services:
  system-service:
-  image: r0819654/herexamen-proect-api-development
+  image: r0819654/herexamen-project-api-development
   ports:
     - "8000:8000"
   volumes:
