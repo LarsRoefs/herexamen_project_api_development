@@ -22,19 +22,19 @@ class DriversBase(BaseModel):
     teams: str
 
         
-class DriverUpdate(DriverBase):
+class DriverUpdate(DriversBase):
     name: str
     teams: str
     Racewinner: bool
 
         
-class DriverCreate(DriverBase):
+class DriverCreate(DriversBase):
     name: str
     teams: str
     Racewinner: bool
 
 
-class DriverDelete(DriverBase):
+class DriverDelete(DriversBase):
     name: str
     teams: str
     Racewinner: bool
