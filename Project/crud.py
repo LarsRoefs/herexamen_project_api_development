@@ -55,7 +55,7 @@ def get_drivers(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.driver).offset(skip).limit(limit).all()
 
 
-def create_driver(db: Session, driver: schemas.driverCreate):
+def create_driver(db: Session, driver: schemas.DriverCreate):
     db_driver = models.driver(name=driver.name, teams=driver.teams)
     db.add(db_driver)
     db.commit()
@@ -63,7 +63,7 @@ def create_driver(db: Session, driver: schemas.driverCreate):
     return db_driver
 
 
-def update_driver(db: Session, driver: schemas.driverUpdate):
+def update_driver(db: Session, driver: schemas.DriverUpdate):
     db_driver = models.driver(name=driver.name, teams=driver.teams)
     db.query(db_driver)
     db.commit()
@@ -71,7 +71,7 @@ def update_driver(db: Session, driver: schemas.driverUpdate):
     return db_driver
 
 
-def delete_driver(db: Session, driver: schemas.driverDelete):
+def delete_driver(db: Session, driver: schemas.DriverDelete):
     db_driver = models.driver(name=driver.name, teams=driver.teams)
     db.delete(db_driver)
     db.commit()
