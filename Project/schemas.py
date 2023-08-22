@@ -40,7 +40,7 @@ class DriverDelete(DriversBase):
     Racewinner: bool
 
 
-class Driver(DriverBase):
+class Driver(DriversBase):
     id: int
     Racewinner: bool
 
