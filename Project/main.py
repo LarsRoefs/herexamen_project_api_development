@@ -118,7 +118,7 @@ def create_driver(driver: schemas.driverCreate, db: Session = Depends(get_db), t
 
 @app.put("/drivers/", response_model=schemas.driver)
 async def update_driver(driver: schemas.driverUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
-    db_driver = crud.get_driver_by_name(db, name=driver.name)zz
+    db_driver = crud.get_driver_by_name(db, name=driver.name)
     if db_driver:
         raise HTTPException(status_code=400, detail="driver is already registered")
     return crud.update_driver(db, driver=driver)
