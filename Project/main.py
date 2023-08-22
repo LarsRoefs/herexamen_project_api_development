@@ -108,29 +108,29 @@ def read_team(team_id: int, db: Session = Depends(get_db), token: str = Depends(
     return db_team
 
 
-@app.post("/drivers/", response_model=schemas.driver)
-def create_driver(driver: schemas.driverCreate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+@app.post("/drivers/", response_model=schemas.Driver)
+def create_driver(driver: schemas.DriverCreate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_driver = crud.get_driver_by_name(db, name=driver.name)
     if db_driver:
         raise HTTPException(status_code=400, detail="driver is already registered")
     return crud.create_driver(db=db, driver=driver)
 
 
-@app.put("/drivers/", response_model=schemas.driver)
-async def update_driver(driver: schemas.driverUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+@app.put("/drivers/", response_model=schemas.Driver)
+async def update_driver(driver: schemas.DriverUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_driver = crud.get_driver_by_name(db, name=driver.name)
     if db_driver:
         raise HTTPException(status_code=400, detail="driver is already registered")
     return crud.update_driver(db, driver=driver)
 
 
-@app.get("/drivers/", response_model=list[schemas.driver])
+@app.get("/drivers/", response_model=list[schemas.Driver])
 def read_drivers(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     drivers = crud.get_drivers(db, skip=skip, limit=limit)
     return drivers
 
 
-@app.get("/drivers/{driver_id}", response_model=schemas.driver)
+@app.get("/drivers/{driver_id}", response_model=schemas.Driver)
 def read_driver(driver_id: int, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_driver = crud.get_driver(db, driver_id=driver_id)
     if db_driver is None:
@@ -138,7 +138,7 @@ def read_driver(driver_id: int, db: Session = Depends(get_db), token: str = Depe
     return db_driver
 
 
-@app.delete("/drivers/", response_model=schemas.driver)
-def delete_driver(driver: schemas.driverDelete, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+@app.delete("/drivers/", response_model=schemas.Driver)
+def delete_driver(driver: schemas.DriverDelete, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_driver = crud.get_driver_by_name(db, name=driver.name)
     return crud.delete_driver(db=db, driver=driver)
