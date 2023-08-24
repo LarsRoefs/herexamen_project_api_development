@@ -134,7 +134,7 @@ def read_team(team_id: int, db: Session = Depends(get_db), token: str = Depends(
     return db_team
 
 #delete
-@app.delete("/teams/{name}", response_model=schemas.Team)
+@app.delete("/teams/{name}")
 def read_team(name: str, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_team = crud.get_team_by_name(db, name=name)
     if db_team == None:

@@ -31,20 +31,6 @@ class DriverCreate(DriversBase):
     racewins: int
     worldchampionships: int
 
-class DriverUpdate(DriversBase):
-    name: str
-    team: str
-    nationality: str
-    racewins: int
-    worldchampionships: int
-        
-class DriverDelete(DriversBase):
-    name: str
-    team: str
-    nationality: str
-    racewins: int
-    worldchampionships: int
-
 class Driver(DriversBase):
     id: int
 
@@ -59,18 +45,6 @@ class TeamBase(BaseModel):
     constructorchampionships: int
 
 class TeamCreate(TeamBase):
-    name: str
-    headquarters: str
-    racewins: int
-    constructorchampionships: int
-
-class TeamUpdate(TeamBase):
-    name: str
-    headquarters: str
-    racewins: int
-    constructorchampionships: int
-
-class TeamDelete(TeamBase):
     name: str
     headquarters: str
     racewins: int
