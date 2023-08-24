@@ -12,7 +12,7 @@ class User(Base):
     hashed_password = Column(String)
     is_active = Column(Boolean, default=True)
 
-class Drivers(Base):
+class Driver(Base):
     __tablename__ = "drivers"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -22,7 +22,7 @@ class Drivers(Base):
     racewins = Column(Integer)
     worldchampionships = Column(Integer)
     
-class Teams(Base):
+class Team(Base):
     __tablename__ = "teams"
 
     id = Column(Integer, primary_key=True, index=True)

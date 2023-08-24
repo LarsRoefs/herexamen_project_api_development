@@ -38,15 +38,15 @@ def get_driver(db: Session, driver_id: int):
 
 #Get driver by name
 def get_driver_by_name(db: Session, name: str):
-    return db.query(models.driver).filter(models.driver.name == name).first()
+    return db.query(models.Driver).filter(models.Driver.name == name).first()
 
 #Get list of drivers
 def get_drivers(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(models.driver).offset(skip).limit(limit).all()
+    return db.query(models.Driver).offset(skip).limit(limit).all()
 
 #Create driver
 def create_driver(db: Session, driver: schemas.DriverCreate):
-    db_driver = models.driver(name=driver.name, team=driver.team, nationality=driver.nationality, racewins=driver.racewins, worldchampionships=driver.worldchampionships)
+    db_driver = models.Driver(name=driver.name, team=driver.team, nationality=driver.nationality, racewins=driver.racewins, worldchampionships=driver.worldchampionships)
     db.add(db_driver)
     db.commit()
     db.refresh(db_driver)
@@ -54,7 +54,7 @@ def create_driver(db: Session, driver: schemas.DriverCreate):
 
 #Update driver
 def update_driver(db: Session, driver: schemas.DriverUpdate):
-    db_driver = models.driver(name=driver.name, team=driver.team, nationality=driver.nationality, racewins=driver.racewins, worldchampionships=driver.worldchampionships)
+    db_driver = models.Driver(name=driver.name, team=driver.team, nationality=driver.nationality, racewins=driver.racewins, worldchampionships=driver.worldchampionships)
     db.query(db_driver)
     db.commit()
     db.refresh(db_driver)
@@ -62,7 +62,7 @@ def update_driver(db: Session, driver: schemas.DriverUpdate):
 
 #delete driver
 def delete_driver(db: Session, driver: schemas.DriverDelete):
-    db_driver = models.driver(name=driver.name, team=driver.team, nationality=driver.nationality, racewins=driver.racewins, worldchampionships=driver.worldchampionships)
+    db_driver = models.Driver(name=driver.name, team=driver.team, nationality=driver.nationality, racewins=driver.racewins, worldchampionships=driver.worldchampionships)
     db.delete(db_driver)
     db.commit()
     db.refresh(db_driver)
