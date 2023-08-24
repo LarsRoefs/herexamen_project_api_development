@@ -156,4 +156,3 @@ def update_team(team_id: int, team: schemas.TeamUpdate, db: Session = Depends(ge
         raise HTTPException(status_code=404, detail="team is not found")
     else:
         crud.update_team
-    return db_team.first()
