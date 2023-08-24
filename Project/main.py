@@ -1,6 +1,5 @@
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from Project.models import Teams
 from sqlalchemy.orm import Session
 
 import crud

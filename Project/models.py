@@ -22,8 +22,6 @@ class Drivers(Base):
     racewins = Column(Integer)
     worldchampionships = Column(Integer)
     
-
-
 class Teams(Base):
     __tablename__ = "teams"
 
