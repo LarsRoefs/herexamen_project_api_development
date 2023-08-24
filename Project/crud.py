@@ -96,9 +96,9 @@ def create_team(db: Session, team: schemas.TeamCreate):
     return db_team
 
 #Update team
-def update_team(db: Session, team: schemas.TeamUpdate):
-    db_team = models.Team(name=team.name, headquarters=team.headquarters, racewins=team.racewins, constructorchampionships=team.constructorchampionships)
-    db.query(db_team)
+def update_team(db: Session, team: schemas.TeamUpdate , name: str):
+    db_team = db.query(models.Team).filter(models.Team.name == name)
+    db_team.update(team.dict(), synchronize_session=False)
     db.commit()
     db.refresh(db_team)
     return db_team

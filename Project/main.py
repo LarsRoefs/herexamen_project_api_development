@@ -106,7 +106,7 @@ def read_driver(driver_id: int, db: Session = Depends(get_db), token: str = Depe
 
 #delete
 @app.delete("/drivers/{name}")
-def read_driver(name: str, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+def delete_driver(name: str, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_driver = crud.get_driver_by_name(db, name=name)
     if db_driver == None:
         raise HTTPException(status_code=404, detail="driver is not found")
@@ -134,23 +134,26 @@ def read_teams(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), t
 def read_team(team_id: int, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_team = crud.get_team(db, team_id=team_id)
     if db_team is None:
-        raise HTTPException(status_code=404, detail="Team is not found")
+        raise HTTPException(status_code=404, detail="team is not found")
     return db_team
 
 #delete
 @app.delete("/teams/{name}")
-def read_team(name: str, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+def delete_team(name: str, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_team = crud.get_team_by_name(db, name=name)
     if db_team == None:
-        raise HTTPException(status_code=404, detail="Team is not found")
+        raise HTTPException(status_code=404, detail="team is not found")
     else:
         crud.delete_team(db,name)
     return "Team is deleted"
     
-
-@app.put("/teams/", response_model=schemas.Team)
-async def update_team(driver: schemas.TeamUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
-    db_team = crud.get_team_by_name(db, name=team.name)
-    if db_team:
-        raise HTTPException(status_code=400, detail="team is already registered")
-    return crud.update_team(db, team=team)
+#Update
+@app.put("/teams/{id}", response_model=schemas.Team)
+def update_team(team_id: int, team: schemas.TeamUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    db_team = crud.get_team(db, team_id=team_id)
+    db_team.first()
+    if db_team == None:
+        raise HTTPException(status_code=404, detail="team is not found")
+    else:
+        crud.update_team
+    return db_team.first()
