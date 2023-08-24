@@ -105,7 +105,7 @@ def read_driver(driver_id: int, db: Session = Depends(get_db), token: str = Depe
     return db_driver
 
 #delete
-@app.delete("/drivers/", response_model=schemas.Driver)
+@app.delete("/drivers/{name}")
 def delete_driver(driver: schemas.DriverDelete, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_driver = crud.get_driver_by_name(db, name=driver.name)
     return crud.delete_driver(db=db, driver=driver)
@@ -133,16 +133,20 @@ def read_team(team_id: int, db: Session = Depends(get_db), token: str = Depends(
         raise HTTPException(status_code=404, detail="Team is not found")
     return db_team
 
+#delete
+@app.delete("/teams/{name}", response_model=schemas.Team)
+def delete_team(name: str,team: schemas.TeamDelete, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    db_team = crud.get_team_by_name(db, name=team.name)
+    if db_team == None:
+        raise HTTPException(status_code=404, detail="Team is not found")
+    else:
+        crud.delete_team(db,name=name)
+    return "Team is deleted"
+    
+
 @app.put("/teams/", response_model=schemas.Team)
 async def update_team(driver: schemas.TeamUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_team = crud.get_team_by_name(db, name=team.name)
     if db_team:
         raise HTTPException(status_code=400, detail="team is already registered")
     return crud.update_team(db, team=team)
-
-#delete
-@app.delete("/teams/", response_model=schemas.Team)
-def delete_team(team: schemas.TeamDelete, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
-    db_team = crud.get_team_by_name(db, name=team.name)
-    return crud.delete_team(db=db, team=team)
-
