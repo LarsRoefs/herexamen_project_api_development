@@ -136,7 +136,7 @@ def read_team(team_id: int, db: Session = Depends(get_db), token: str = Depends(
 #delete
 @app.delete("/teams/{name}", response_model=schemas.Team)
 def read_team(name: str, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
-    db_team = crud.get_team_by_name(db, name=team.name)
+    db_team = crud.get_team_by_name(db, name=name)
     if db_team == None:
         raise HTTPException(status_code=404, detail="Team is not found")
     else:
