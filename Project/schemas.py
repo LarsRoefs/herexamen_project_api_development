@@ -25,25 +25,13 @@ class DriversBase(BaseModel):
     worldchampionships: int   
 
 class DriverCreate(DriversBase):
-    name: str
-    team: str
-    nationality: str
-    racewins: int
-    worldchampionships: int
+    pass
 
 class DriverUpdate(DriversBase):
-    name: str
-    team: str
-    nationality: str
-    racewins: int
-    worldchampionships: int
+    pass
         
 class DriverDelete(DriversBase):
-    name: str
-    team: str
-    nationality: str
-    racewins: int
-    worldchampionships: int
+    pass
 
 class Driver(DriversBase):
     id: int
