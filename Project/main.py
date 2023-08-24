@@ -151,7 +151,7 @@ def delete_team(name: str, db: Session = Depends(get_db), token: str = Depends(o
 @app.put("/teams/{id}", response_model=schemas.Team)
 def update_team(team_id: int, team: schemas.TeamUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_team = crud.get_team(db, team_id=team_id)
-    db_team.first()
+    #db_team.first()
     if db_team == None:
         raise HTTPException(status_code=404, detail="team is not found")
     else:
