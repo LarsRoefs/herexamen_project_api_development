@@ -30,9 +30,6 @@ class DriverCreate(DriversBase):
 class DriverUpdate(DriversBase):
     pass
         
-class DriverDelete(DriversBase):
-    pass
-
 class Driver(DriversBase):
     id: int
 
@@ -47,22 +44,10 @@ class TeamBase(BaseModel):
     constructorchampionships: int
 
 class TeamCreate(TeamBase):
-    name: str
-    headquarters: str
-    racewins: int
-    constructorchampionships: int
+    pass
 
 class TeamUpdate(TeamBase):
-    name: str
-    headquarters: str
-    racewins: int
-    constructorchampionships: int
-
-class TeamDelete(TeamBase):
-    name: str
-    headquarters: str
-    racewins: int
-    constructorchampionships: int
+    pass
 
 class Team(TeamBase):
     id: int

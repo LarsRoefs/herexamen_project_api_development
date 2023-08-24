@@ -44,6 +44,8 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db:
 
     return {"access_token": access_token, "token_type": "bearer"}
 
+
+
 #Users
 #Post
 @app.post("/users/", response_model=schemas.User)
@@ -73,6 +75,8 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="User is not found")
     return db_user
 
+
+
 #Drivers
 #Post
 @app.post("/drivers/", response_model=schemas.Driver)
@@ -81,14 +85,6 @@ def create_driver(driver: schemas.DriverCreate, db: Session = Depends(get_db), t
     if db_driver:
         raise HTTPException(status_code=400, detail="driver is already registered")
     return crud.create_driver(db=db, driver=driver)
-
-#Put
-@app.put("/drivers/", response_model=schemas.Driver)
-async def update_driver(driver: schemas.DriverUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
-    db_driver = crud.get_driver_by_name(db, name=driver.name)
-    if db_driver:
-        raise HTTPException(status_code=400, detail="driver is already registered")
-    return crud.update_driver(db, driver=driver)
 
 #Get
 @app.get("/drivers/", response_model=list[schemas.Driver])
@@ -104,6 +100,17 @@ def read_driver(driver_id: int, db: Session = Depends(get_db), token: str = Depe
         raise HTTPException(status_code=404, detail="driver is not found")
     return db_driver
 
+#Update
+@app.put("/drivers/{id}", response_model=schemas.Driver)
+def update_driver(driver_id: int, driver: schemas.DriverUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    db_driver = crud.get_driver(db, driver_id=driver_id)
+    if db_driver == None:
+        raise HTTPException(status_code=404, detail="driver is not found")
+    else:
+        crud.update_driver(db, driver, driver_id)
+    db_driver = crud.get_driver(db, driver_id=driver_id)
+    return db_driver
+
 #delete
 @app.delete("/drivers/{name}")
 def delete_driver(name: str, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
@@ -113,6 +120,10 @@ def delete_driver(name: str, db: Session = Depends(get_db), token: str = Depends
     else:
         crud.delete_driver(db,name)
     return "driver is deleted"
+
+
+
+
 
 #Teams
 #Post
@@ -137,6 +148,17 @@ def read_team(team_id: int, db: Session = Depends(get_db), token: str = Depends(
         raise HTTPException(status_code=404, detail="team is not found")
     return db_team
 
+#Update
+@app.put("/teams/{id}", response_model=schemas.Team)
+def update_team(team_id: int, team: schemas.TeamUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    db_team = crud.get_team(db, team_id=team_id)
+    if db_team == None:
+        raise HTTPException(status_code=404, detail="team is not found")
+    else:
+        crud.update_team(db, team, team_id)
+    db_team = crud.get_team(db, team_id=team_id)
+    return db_team
+
 #delete
 @app.delete("/teams/{name}")
 def delete_team(name: str, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
@@ -146,16 +168,3 @@ def delete_team(name: str, db: Session = Depends(get_db), token: str = Depends(o
     else:
         crud.delete_team(db,name)
     return "Team is deleted"
-    
-#Update
-@app.put("/teams/{id}", response_model=schemas.Team)
-def update_team(team_id: int, team: schemas.TeamUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
-    db_team = crud.get_team(db, team_id=team_id)
-    #db_team.first()
-    if db_team == None:
-        raise HTTPException(status_code=404, detail="team is not found")
-    else:
-        crud.update_team(db, team, team_id)
-    db_team = crud.get_team(db, team_id=team_id)
-    return db_team
-

@@ -32,6 +32,9 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.refresh(db_user)
     return db_user
 
+
+
+
 #Drivers
 #Get driver by id
 def get_driver(db: Session, driver_id: int):
@@ -54,26 +57,20 @@ def create_driver(db: Session, driver: schemas.DriverCreate):
     return db_driver
 
 #Update driver
-def update_driver(db: Session, driver: schemas.DriverUpdate):
-    db_driver = models.Driver(name=driver.name, team=driver.team, nationality=driver.nationality, racewins=driver.racewins, worldchampionships=driver.worldchampionships)
-    db.query(db_driver)
+def update_driver(db: Session, driver: schemas.DriverUpdate , driver_id: int):
+    db_driver = db.query(models.Driver).filter(models.Driver.id == driver_id)
+    db_driver.update(driver.dict(), synchronize_session=False)
     db.commit()
-    db.refresh(db_driver)
-    return db_driver
 
 #delete driver
-def delete_driver(db: Session, name: str):
-    db_driver = db.query(models.Driver).filter(models.Driver.name == name)
-    db.delete(db_driver)
-    db.commit()
-    db.refresh(db_driver)
-    return db_driver
-
 def delete_driver(db: Session, name: str):
     db_driver = db.query(models.Driver).filter(models.Driver.name == name)
     db_driver.delete(synchronize_session=False)
     db.commit()
     return 'driver is deleted'
+
+
+
 
 #Teams
 #Get team by id
