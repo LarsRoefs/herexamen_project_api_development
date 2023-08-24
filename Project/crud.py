@@ -101,7 +101,6 @@ def update_team(db: Session, team: schemas.TeamUpdate , team_id: int):
     db_team = db.query(models.Team).filter(models.Team.id == team_id)
     db_team.update(team.dict(), synchronize_session=False)
     db.commit()
-    return db_team
 
 #delete team
 def delete_team(db: Session, name: str):
