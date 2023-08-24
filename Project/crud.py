@@ -62,7 +62,7 @@ def update_driver(db: Session, driver: schemas.DriverUpdate):
 
 #delete driver
 def delete_driver(db: Session, driver: schemas.DriverDelete):
-    db_driver = models.Driver(name=driver.name, team=driver.team, nationality=driver.nationality, racewins=driver.racewins, worldchampionships=driver.worldchampionships)
+    db_driver = models.Driver(name=driver.name)
     db.delete(db_driver)
     db.commit()
     db.refresh(db_driver)
