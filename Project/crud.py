@@ -98,9 +98,8 @@ def update_team(db: Session, team: schemas.TeamUpdate):
     return db_team
 
 #delete team
-def delete_team(db: Session, team: schemas.TeamDelete):
-    db_team = models.Team(name=team.name, headquarters=team.headquarters, racewins=team.racewins, constructorchampionships=team.constructorchampionships)
-    db.delete(db_team)
+def delete_team(db: Session, name: str):
+    db_driver = db.query(models.Driver).filter(models.Driver.name == name)
+    db_driver.delete(synchronize_session=False)
     db.commit()
-    db.refresh(db_team)
-    return db_team
+    return 'Team is deleted'

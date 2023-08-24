@@ -140,7 +140,7 @@ def read_team(name: str, db: Session = Depends(get_db), token: str = Depends(oau
     if db_team == None:
         raise HTTPException(status_code=404, detail="Team is not found")
     else:
-        crud.delete_team(db,name=name)
+        crud.delete_team(db,name)
     return "Team is deleted"
     
 
