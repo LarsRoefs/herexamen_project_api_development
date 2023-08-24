@@ -68,6 +68,12 @@ def delete_driver(db: Session, name: str):
     db.refresh(db_driver)
     return db_driver
 
+def delete_driver(db: Session, name: str):
+    db_driver = db.query(models.Driver).filter(models.Driver.name == name)
+    db_driver.delete(synchronize_session=False)
+    db.commit()
+    return 'driver is deleted'
+
 #Teams
 #Get team by id
 def get_team(db: Session, team_id: int):
@@ -99,7 +105,7 @@ def update_team(db: Session, team: schemas.TeamUpdate):
 
 #delete team
 def delete_team(db: Session, name: str):
-    db_driver = db.query(models.Team).filter(models.Team.name == name)
-    db_driver.delete(synchronize_session=False)
+    db_team = db.query(models.Team).filter(models.Team.name == name)
+    db_team.delete(synchronize_session=False)
     db.commit()
     return 'Team is deleted'

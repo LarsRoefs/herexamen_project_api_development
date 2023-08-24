@@ -106,9 +106,13 @@ def read_driver(driver_id: int, db: Session = Depends(get_db), token: str = Depe
 
 #delete
 @app.delete("/drivers/{name}")
-def delete_driver(driver: schemas.DriverDelete, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
-    db_driver = crud.get_driver_by_name(db, name=driver.name)
-    return crud.delete_driver(db=db, driver=driver)
+def read_driver(name: str, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    db_driver = crud.get_driver_by_name(db, name=name)
+    if db_driver == None:
+        raise HTTPException(status_code=404, detail="driver is not found")
+    else:
+        crud.delete_driver(db,name)
+    return "driver is deleted"
 
 #Teams
 #Post
