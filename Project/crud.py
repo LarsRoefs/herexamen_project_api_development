@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 import sqlalchemy.orm.query
 from fastapi.security import OAuth2PasswordBearer
 
+
 import models
 import schemas
 import auth
@@ -96,8 +97,8 @@ def create_team(db: Session, team: schemas.TeamCreate):
     return db_team
 
 #Update team
-def update_team(db: Session, team: schemas.TeamUpdate , name: str):
-    db_team = db.query(models.Team).filter(models.Team.name == name)
+def update_team(db: Session, team: schemas.TeamUpdate , team_id: int):
+    db_team = db.query(models.Team).filter(models.Team.id == team_id)
     db_team.update(team.dict(), synchronize_session=False)
     db.commit()
     db.refresh(db_team)
