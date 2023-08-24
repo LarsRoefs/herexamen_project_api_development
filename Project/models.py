@@ -17,9 +17,11 @@ class Drivers(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
-    Racewinner = Column(Boolean, default=False)
-    Worldchampion = Column(Boolean, default=False)
-    teams = Column(String)
+    team = Column(String)
+    nationality = Column(String)
+    racewins = Column(Integer)
+    worldchampionships = Column(Integer)
+    
 
 
 class Teams(Base):
@@ -27,4 +29,7 @@ class Teams(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
-    Constructorchampion = Column(Boolean, default=False)
+    headquarters = Column(String)
+    racewins = Column(Integer)
+    constructorchampionships = Column(Integer)
+    

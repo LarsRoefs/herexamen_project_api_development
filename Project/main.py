@@ -1,5 +1,6 @@
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from Project.models import Teams
 from sqlalchemy.orm import Session
 
 import crud
@@ -44,7 +45,8 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db:
 
     return {"access_token": access_token, "token_type": "bearer"}
 
-
+#Users
+#Post
 @app.post("/users/", response_model=schemas.User)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=user.email)
@@ -52,19 +54,19 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail="Email is already registered")
     return crud.create_user(db=db, user=user)
 
-
+#Get
 @app.get("/users/", response_model=list[schemas.User])
 def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     users = crud.get_users(db, skip=skip, limit=limit)
     return users
 
-
+#Get user
 @app.get("/users/me", response_model=schemas.User)
 def read_users_me(db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     current_user = auth.get_current_active_user(db, token)
     return current_user
 
-
+#Get user id
 @app.get("/users/{user_id}", response_model=schemas.User)
 def read_user(user_id: int, db: Session = Depends(get_db)):
     db_user = crud.get_user(db, user_id=user_id)
@@ -72,42 +74,8 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="User is not found")
     return db_user
 
-
-#@app.post("/users/{user_id}/items/", response_model=schemas.Item)
-#def create_item_for_user(
- #   user_id: int, item: schemas.ItemCreate, db: Session = Depends(get_db)
-#):
- #   return crud.create_user_item(db=db, item=item, user_id=user_id)
-
-
-#@app.get("/items/", response_model=list[schemas.Item])
-#def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
- #   items = crud.get_items(db, skip=skip, limit=limit)
-  #  return items
-
-
-@app.post("/teams/", response_model=schemas.Team)
-def create_team(team: schemas.TeamCreate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
-    db_team = crud.get_team_by_name(db, name=team.name)
-    if db_team:
-        raise HTTPException(status_code=400, detail="Team is already registered")
-    return crud.create_team(db=db, team=team)
-
-
-@app.get("/teams/", response_model=list[schemas.Team])
-def read_teams(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
-    teams = crud.get_teams(db, skip=skip, limit=limit)
-    return teams
-
-
-@app.get("/teams/{team_id}", response_model=schemas.Team)
-def read_team(team_id: int, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
-    db_team = crud.get_team(db, team_id=team_id)
-    if db_team is None:
-        raise HTTPException(status_code=404, detail="Team is not found")
-    return db_team
-
-
+#Drivers
+#Post
 @app.post("/drivers/", response_model=schemas.Driver)
 def create_driver(driver: schemas.DriverCreate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_driver = crud.get_driver_by_name(db, name=driver.name)
@@ -115,7 +83,7 @@ def create_driver(driver: schemas.DriverCreate, db: Session = Depends(get_db), t
         raise HTTPException(status_code=400, detail="driver is already registered")
     return crud.create_driver(db=db, driver=driver)
 
-
+#Put
 @app.put("/drivers/", response_model=schemas.Driver)
 async def update_driver(driver: schemas.DriverUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_driver = crud.get_driver_by_name(db, name=driver.name)
@@ -123,13 +91,13 @@ async def update_driver(driver: schemas.DriverUpdate, db: Session = Depends(get_
         raise HTTPException(status_code=400, detail="driver is already registered")
     return crud.update_driver(db, driver=driver)
 
-
+#Get
 @app.get("/drivers/", response_model=list[schemas.Driver])
 def read_drivers(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     drivers = crud.get_drivers(db, skip=skip, limit=limit)
     return drivers
 
-
+#Get driver id
 @app.get("/drivers/{driver_id}", response_model=schemas.Driver)
 def read_driver(driver_id: int, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_driver = crud.get_driver(db, driver_id=driver_id)
@@ -137,8 +105,45 @@ def read_driver(driver_id: int, db: Session = Depends(get_db), token: str = Depe
         raise HTTPException(status_code=404, detail="driver is not found")
     return db_driver
 
-
+#delete
 @app.delete("/drivers/", response_model=schemas.Driver)
 def delete_driver(driver: schemas.DriverDelete, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_driver = crud.get_driver_by_name(db, name=driver.name)
     return crud.delete_driver(db=db, driver=driver)
+
+#Teams
+#Post
+@app.post("/teams/", response_model=schemas.Team)
+def create_team(team: schemas.TeamCreate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    db_team = crud.get_team_by_name(db, name=team.name)
+    if db_team:
+        raise HTTPException(status_code=400, detail="Team is already registered")
+    return crud.create_team(db=db, team=team)
+
+#Get
+@app.get("/teams/", response_model=list[schemas.Team])
+def read_teams(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    teams = crud.get_teams(db, skip=skip, limit=limit)
+    return teams
+
+#Get team id
+@app.get("/teams/{team_id}", response_model=schemas.Team)
+def read_team(team_id: int, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    db_team = crud.get_team(db, team_id=team_id)
+    if db_team is None:
+        raise HTTPException(status_code=404, detail="Team is not found")
+    return db_team
+
+@app.put("/teams/", response_model=schemas.Team)
+async def update_team(driver: schemas.TeamUpdate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    db_team = crud.get_team_by_name(db, name=team.name)
+    if db_team:
+        raise HTTPException(status_code=400, detail="team is already registered")
+    return crud.update_team(db, team=team)
+
+#delete
+@app.delete("/teams/", response_model=schemas.Team)
+def delete_team(team: schemas.TeamDelete, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    db_team = crud.get_team_by_name(db, name=team.name)
+    return crud.delete_team(db=db, team=team)
+

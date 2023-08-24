@@ -19,30 +19,34 @@ class User(UserBase):
 #Drivers
 class DriversBase(BaseModel):
     name: str
-    teams: str
+    team: str
+    nationality: str
+    racewins: int
+    worldchampionships: int   
 
-        
-class DriverUpdate(DriversBase):
-    name: str
-    teams: str
-    Racewinner: bool
-
-        
 class DriverCreate(DriversBase):
     name: str
-    teams: str
-    Racewinner: bool
+    team: str
+    nationality: str
+    racewins: int
+    worldchampionships: int
 
-
+class DriverUpdate(DriversBase):
+    name: str
+    team: str
+    nationality: str
+    racewins: int
+    worldchampionships: int
+        
 class DriverDelete(DriversBase):
     name: str
-    teams: str
-    Racewinner: bool
-
+    team: str
+    nationality: str
+    racewins: int
+    worldchampionships: int
 
 class Driver(DriversBase):
     id: int
-    Racewinner: bool
 
     class Config:
         orm_mode = True
@@ -50,17 +54,30 @@ class Driver(DriversBase):
 #Teams
 class TeamBase(BaseModel):
     name: str
-    Contructorchampion: bool
-
+    headquarters: str
+    racewins: int
+    constructorchampionships: int
 
 class TeamCreate(TeamBase):
     name: str
-    Contructorchampion: bool
+    headquarters: str
+    racewins: int
+    constructorchampionships: int
 
+class TeamUpdate(TeamBase):
+    name: str
+    headquarters: str
+    racewins: int
+    constructorchampionships: int
+
+class TeamDelete(TeamBase):
+    name: str
+    headquarters: str
+    racewins: int
+    constructorchampionships: int
 
 class Team(TeamBase):
     id: int
-    Contructorchampion: bool
 
     class Config:
         orm_mode = True
