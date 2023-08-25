@@ -36,3 +36,9 @@
 <p>Als we een driver hebben aangemaakt dan kunnen we ook een oplijsting terug vragen aan de API. DIt doen we door een GET request te sturen naar onze API/drivers/.</p>
 
 ![POSTUser](https://drive.google.com/uc?export=view&id=1oHSkpYfQC5j5NgSvkQCYqLF6JQMzLWqN)
+
+<h3>PUT Driver</h3>
+<p>Als we een driver hebben aangemaakt dan kunnen we deze ook wijzigen als da nodig zou zijn. Je kan ook een driver wijzigen die al reeds gemaakt was. Eerst moeten we kiezen welke driver we willen wijzigen. Dit doen we via hun unieke id. Deze zetten we dan ook mee in de link naar de API. Daarna maken we een PUT request naar onze API/drivers/?id_driver=2 met de juiste body en parameters.</p>
+
+![POSTUser](https://drive.google.com/uc?export=view&id=1G3hz4uxUIAl64sBqnnDQ-E5fJKmTBeh4)
+
