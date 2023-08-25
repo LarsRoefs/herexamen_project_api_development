@@ -6,6 +6,6 @@
 <br>
 <h1>Screenshots OpenAPI docs</h1>
 
-<img src="https://drive.google.com/file/d/1njpqlGGowTSTsLIBKxK6iudZFqbwLyPt/view?usp=drive_link" alt="Alt text" title="Optional title">
+<img src="https://drive.google.com/file/d/1njpqlGGowTSTsLIBKxK6iudZFqbwLyPt" alt="Alt text" title="Optional title">
 
 
