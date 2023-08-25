@@ -11,3 +11,5 @@
 ![OpenAPIdocs3](https://drive.google.com/uc?export=view&id=1ISgaDcL97mJPE_9SV3JD7EVMWSH-xube)
 
 <h1>Screenshots & Werking API Postman</h1>
+<p>Als eerste moet je een user maken voor zo authenticatie te kunnen krijgen om toegang te krijgen tot de rest van de API. We maken dus een POST request naar onze API/users/. Hierin geven we 2 variabelen mee die nodig zijn voor de gerbuiker aan te maken. Namelijk email en password. Deze kan je best onthouden.</p>
+![POSTUser](https://drive.google.com/uc?export=view&id=1bLoafsoAIbz3_Gea4kMClYhJ0e95sa-x)
