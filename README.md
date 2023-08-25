@@ -26,3 +26,8 @@
 <p>Na de User aan te maken en de token toe te voegen in onze header kunnen we verder naar de andere einpoints. De volgende zal een GET request zijn naar onze API/Users/ om een oplijsting te krijgen van de gebruikers die aangemaakt zijn.</p>
 
 ![POSTUser](https://drive.google.com/uc?export=view&id=1oe8es3MgcffY0Zh58b0cF2u7z0V54bEK)
+
+<h3>Post Driver</h3>
+<p>Als volgende kunnen we een Driver aanmaken door een POST request te maken naar onze API/drivers. We geven dan ook de juist body mee met de juiste parameters.</p>
+
+![POSTUser](https://drive.google.com/uc?export=view&id=1OrzYOU514G-EyDLiqp_yyRbFJOt_Oej4)
