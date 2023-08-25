@@ -6,5 +6,7 @@
 <br>
 <h1>Screenshots OpenAPI docs</h1>
 
-<img src="https://drive.google.com/drive/folders/1YbJ5rTdVCEmfxiW5uIDXTA86rL7j0Ayf" alt="Alt text" title="Optional title">
+<img src="https://drive.google.com/file/d/1njpqlGGowTSTsLIBKxK6iudZFqbwLyPt" alt="Alt text" title="Optional title">
+
+https://raw.githubusercontent.com/{github_user_name}/{repo_name}/{branch}/.github/images/{asset_name}.{asset_extension}
 
