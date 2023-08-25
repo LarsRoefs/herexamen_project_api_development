@@ -11,5 +11,11 @@
 ![OpenAPIdocs3](https://drive.google.com/uc?export=view&id=1ISgaDcL97mJPE_9SV3JD7EVMWSH-xube)
 
 <h1>Screenshots & Werking API Postman</h1>
+<h3>POST User</h3>
 <p>Als eerste moet je een user maken voor zo authenticatie te kunnen krijgen om toegang te krijgen tot de rest van de API. We maken dus een POST request naar onze API/users/. Hierin geven we 2 variabelen mee die nodig zijn voor de gerbuiker aan te maken. Namelijk email en password. Deze kan je best onthouden.</p>
 ![POSTUser](https://drive.google.com/uc?export=view&id=1bLoafsoAIbz3_Gea4kMClYhJ0e95sa-x)
+
+<h3>POST Token</h3>
+<p>Nu hebben we de inloggegevens nodig van de gebruiker die we net hebben aangemaakt. Deze gaan we nodig hebben voor onze bearer token te krijgen. Deze kunnen we verkijgen door een POST request naar onze API/token te maken met de inloggegevens. Als we deze dan hebben, voegen we die ook toe in de header.</p>
+![POSTToken1](https://drive.google.com/uc?export=view&id=1UvQkhqlYrqerGyxMpoPyRkeYUAQDvs-v)
+![POSTToken2](https://drive.google.com/uc?export=view&id=1FQAUWmmZJzl-0wAHlN_TBSRo3HWu9o8K)
