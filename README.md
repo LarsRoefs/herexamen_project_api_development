@@ -10,7 +10,6 @@
 
 <img src="https://drive.google.com/file/d/1njpqlGGowTSTsLIBKxK6iudZFqbwLyPt" alt="Alt text" title="Optional title">
 
-![img11](https://drive.google.com/file/d/1MPA538JUUWahw2BSUyfnUds9hjs15Juq/view)
-https://drive.google.com/file/d/1MPA538JUUWahw2BSUyfnUds9hjs15Juq/view
+![img11](https://drive.google.com/file/d/uc?export=view&id=1MPA538JUUWahw2BSUyfnUds9hjs15Juq)
 
 
