@@ -6,10 +6,8 @@
 <br>
 <h1>Screenshots OpenAPI docs</h1>
 
-<img src="https://drive.google.com/file/d/1njpqlGGowTSTsLIBKxK6iudZFqbwLyPt" alt="Alt text" title="Optional title">
-
-<img src="https://drive.google.com/file/d/1njpqlGGowTSTsLIBKxK6iudZFqbwLyPt" alt="Alt text" title="Optional title">
-
-![img11](https://drive.google.com/uc?export=view&id=1MPA538JUUWahw2BSUyfnUds9hjs15Juq)
+![OpenAPIdocs1](https://drive.google.com/uc?export=view&id=1njpqlGGowTSTsLIBKxK6iudZFqbwLyPt)
+![OpenAPIdocs2](https://drive.google.com/uc?export=view&id=1MPA538JUUWahw2BSUyfnUds9hjs15Juq)
+![OpenAPIdocs3](https://drive.google.com/uc?export=view&id=1MPA538JUUWahw2BSUyfnUds9hjs15Juq)
 
 
