@@ -5,5 +5,6 @@
 <p>Als aanvulling van het project heb ik gekozen voor de front-end omdat daar meer mijn interrese lag. Ik heb dus 3.1 gevolgd door al mijn GET en POST eindpoints te implementeren in mijn frontend applicatie. Hiervoor heb ik AlpineJS gebruikt, deze applicatie staat ook op Netlify gehost. Deze is te bereiken via volgende link: https://voluble-raindrop-dbb0f3.netlify.app. Ik heb dit kunnen realiseren door alles van mijn frontend op GitHub te zetten in een andere repository en die te gebruiken op Netlify. Alles wat in die repository te vinden is staat in deze repository onder de map 'frontend' of uw kan volgende link volgen naar de repositry: https://github.com/LarsRoefs/herexamen_API_frontend . Hiermee ben ik dus ook gegeaan voor aanvulling 3.1.1. Ik heb ook een template gebruikt en die dan angepast naar mijn wensen op de front-end dan ook leuk mogelijk te maken en dan ook voor aanvulling 3.1.2 te gaan. Verder ben ik niet gegaan met aanvullingen.</p>
 <br>
 <h1>Screenshots OpenAPI docs</h1>
+
 ![img1]([https://drive.google.com/uc?export=view&id=16XXfdvQtAZ0oGZYFegb_tXL7cLa_pm3H](https://drive.google.com/drive/folders/1YbJ5rTdVCEmfxiW5uIDXTA86rL7j0Ayf)https://drive.google.com/drive/folders/1YbJ5rTdVCEmfxiW5uIDXTA86rL7j0Ayf)
 
