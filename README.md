@@ -21,3 +21,8 @@
 
 ![POSTToken1](https://drive.google.com/uc?export=view&id=1UvQkhqlYrqerGyxMpoPyRkeYUAQDvs-v)
 ![POSTToken2](https://drive.google.com/uc?export=view&id=1FQAUWmmZJzl-0wAHlN_TBSRo3HWu9o8K)
+
+<h3>GET User</h3>
+<p>Na de User aan te maken en de token toe te voegen in onze header kunnen we verder naar de andere einpoints. De volgende zal een GET request zijn naar onze API/Users/ om een oplijsting te krijgen van de gebruikers die aangemaakt zijn.</p>
+
+![POSTUser](https://drive.google.com/uc?export=view&id=1oe8es3MgcffY0Zh58b0cF2u7z0V54bEK)
