@@ -27,7 +27,12 @@
 
 ![POSTUser](https://drive.google.com/uc?export=view&id=1oe8es3MgcffY0Zh58b0cF2u7z0V54bEK)
 
-<h3>Post Driver</h3>
-<p>Als volgende kunnen we een Driver aanmaken door een POST request te maken naar onze API/drivers. We geven dan ook de juist body mee met de juiste parameters.</p>
+<h3>POST Driver</h3>
+<p>Als volgende kunnen we een driver aanmaken door een POST request te maken naar onze API/drivers/. We geven dan ook de juist body mee met de juiste parameters.</p>
 
 ![POSTUser](https://drive.google.com/uc?export=view&id=1OrzYOU514G-EyDLiqp_yyRbFJOt_Oej4)
+
+<h3>GET Driver</h3>
+<p>Als we een driver hebben aangemaakt dan kunnen we ook een oplijsting terug vragen aan de API. DIt doen we door een GET request te sturen naar onze API/drivers/.</p>
+
+![POSTUser](https://drive.google.com/uc?export=view&id=1oHSkpYfQC5j5NgSvkQCYqLF6JQMzLWqN)
