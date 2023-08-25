@@ -25,20 +25,25 @@
 <h3>GET User</h3>
 <p>Na de User aan te maken en de token toe te voegen in onze header kunnen we verder naar de andere einpoints. De volgende zal een GET request zijn naar onze API/Users/ om een oplijsting te krijgen van de gebruikers die aangemaakt zijn.</p>
 
-![POSTUser](https://drive.google.com/uc?export=view&id=1oe8es3MgcffY0Zh58b0cF2u7z0V54bEK)
+![GETUser](https://drive.google.com/uc?export=view&id=1oe8es3MgcffY0Zh58b0cF2u7z0V54bEK)
 
 <h3>POST Driver</h3>
 <p>Als volgende kunnen we een driver aanmaken door een POST request te maken naar onze API/drivers/. We geven dan ook de juist body mee met de juiste parameters.</p>
 
-![POSTUser](https://drive.google.com/uc?export=view&id=1OrzYOU514G-EyDLiqp_yyRbFJOt_Oej4)
+![POSTDriver](https://drive.google.com/uc?export=view&id=1OrzYOU514G-EyDLiqp_yyRbFJOt_Oej4)
 
 <h3>GET Driver</h3>
 <p>Als we een driver hebben aangemaakt dan kunnen we ook een oplijsting terug vragen aan de API. DIt doen we door een GET request te sturen naar onze API/drivers/.</p>
 
-![POSTUser](https://drive.google.com/uc?export=view&id=1oHSkpYfQC5j5NgSvkQCYqLF6JQMzLWqN)
+![GETDriver](https://drive.google.com/uc?export=view&id=1oHSkpYfQC5j5NgSvkQCYqLF6JQMzLWqN)
 
 <h3>PUT Driver</h3>
-<p>Als we een driver hebben aangemaakt dan kunnen we deze ook wijzigen als da nodig zou zijn. Je kan ook een driver wijzigen die al reeds gemaakt was. Eerst moeten we kiezen welke driver we willen wijzigen. Dit doen we via hun unieke id. Deze zetten we dan ook mee in de link naar de API. Daarna maken we een PUT request naar onze API/drivers/?id_driver=2 met de juiste body en parameters.</p>
+<p>Als we een driver hebben aangemaakt dan kunnen we deze ook wijzigen als da nodig zou zijn. Je kan ook een driver wijzigen die al reeds gemaakt was. Eerst moeten we kiezen welke driver we willen wijzigen. Dit doen we via hun unieke id. Deze zetten we dan ook mee in de link naar de API. Daarna sturen we een PUT request naar onze API/drivers/?id_driver=4 met de juiste body en parameters.</p>
 
-![POSTUser](https://drive.google.com/uc?export=view&id=1G3hz4uxUIAl64sBqnnDQ-E5fJKmTBeh4)
+![PUTDriver](https://drive.google.com/uc?export=view&id=1G3hz4uxUIAl64sBqnnDQ-E5fJKmTBeh4)
+
+<h3>DELETE Driver</h3>
+<p>Als laatste eindpoint voor drivers heb je dus ook nog de optie op een driver te verwijderen. Dit gebeurt dan wel op basis van naam. Er wordt dus een DELETE request naar onze APi/drivers/Sebastiaan%20Vettel gestuurd</p>
+
+![DELETEDriver](https://drive.google.com/uc?export=view&id=1uXzK_59mt4wusbCWofjmaIiG1epqmHMD)
 
