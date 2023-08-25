@@ -38,7 +38,7 @@
 ![GETDriver](https://drive.google.com/uc?export=view&id=1oHSkpYfQC5j5NgSvkQCYqLF6JQMzLWqN)
 
 <h3>PUT Driver</h3>
-<p>Als we een driver hebben aangemaakt dan kunnen we deze ook wijzigen als da nodig zou zijn. Je kan ook een driver wijzigen die al reeds gemaakt was. Eerst moeten we kiezen welke driver we willen wijzigen. Dit doen we via hun unieke id. Deze zetten we dan ook mee in de link naar de API. Daarna sturen we een PUT request naar onze API/drivers/?id_driver=4 met de juiste body en parameters.</p>
+<p>Als we een driver hebben aangemaakt dan kunnen we deze ook wijzigen als dat nodig zou zijn. Je kan ook een driver wijzigen die al reeds gemaakt is. Eerst moeten we kiezen welke driver we willen wijzigen. Dit doen we via hun unieke id. Deze zetten we dan ook mee in de link naar de API. Dus sturen we een PUT request naar onze API/drivers/?id_driver=4 met de juiste body en parameters.</p>
 
 ![PUTDriver](https://drive.google.com/uc?export=view&id=1G3hz4uxUIAl64sBqnnDQ-E5fJKmTBeh4)
 
@@ -46,4 +46,24 @@
 <p>Als laatste eindpoint voor drivers heb je dus ook nog de optie op een driver te verwijderen. Dit gebeurt dan wel op basis van naam. Er wordt dus een DELETE request naar onze APi/drivers/Sebastiaan%20Vettel gestuurd</p>
 
 ![DELETEDriver](https://drive.google.com/uc?export=view&id=1uXzK_59mt4wusbCWofjmaIiG1epqmHMD)
+
+<h3>POST Team</h3>
+<p>Als volgende kunnen we een team aanmaken door een POST request te maken naar onze API/teams/. We geven dan ook de juist body mee met de juiste parameters.</p>
+
+![POSTDriver](https://drive.google.com/uc?export=view&id=1hB3sC1f5k_SHMUcb17ufLexio5QQRKRS)
+
+<h3>GET Team</h3>
+<p>Als we een team hebben aangemaakt dan kunnen we ook een oplijsting terug vragen aan de API. DIt doen we door een GET request te sturen naar onze API/teams/.</p>
+
+![GETDriver](https://drive.google.com/uc?export=view&id=1PySk-NgXVh6AC_LUmiXJAun62eqEXxkp)
+
+<h3>PUT Team</h3>
+<p>Als we een team hebben aangemaakt dan kunnen we deze ook wijzigen als dat nodig zou zijn. Je kan ook een team wijzigen die al reeds gemaakt is. Eerst moeten we kiezen welk team we willen wijzigen. Dit doen we via hun unieke id. Deze zetten we dan ook mee in de link naar de API. Dus sturen we een PUT request naar onze API/teams/{id}?id_team=4 met de juiste body en parameters.</p>
+
+![PUTDriver](https://drive.google.com/uc?export=view&id=1VncyLzWjH8gdByM2JyE0a8XgChFTYq9m)
+
+<h3>DELETE Team</h3>
+<p>Als laatste eindpoint voor teams heb je dus ook nog de optie op een team te verwijderen. Dit gebeurt dan wel op basis van naam. Er wordt dus een DELETE request naar onze APi/drivers/Sebastiaan%20Vettel gestuurd</p>
+
+![DELETEDriver](https://drive.google.com/uc?export=view&id=1RyfB4DxIDzBhbxbm6iKGafgJQ68XUnwD)
 
